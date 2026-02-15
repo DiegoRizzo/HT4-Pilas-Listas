@@ -11,38 +11,50 @@ public class StackLista implements IStack<Integer> {
 
     @Override
     public Integer pop() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pop'");
+        if (isEmpty()) {
+            System.out.println("El stack está vacío. No se puede hacer pop.");
+            return null;
+        }
+
+        Integer valor = stack[tope];
+        stack[tope] = null;
+        tope--;
+        return valor;
     }
 
     @Override
     public void push(Integer value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'push'");
+        if (tope == stack.length - 1) {
+            System.out.println("El stack está lleno. No se puede hacer push.");
+            return;
+        }
+
+        tope++;
+        stack[tope] = value;
     }
 
     @Override
     public Integer peek() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'peek'");
+        if (isEmpty()) return null;
+        return stack[tope];
     }
 
     @Override
-    public boolean empty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'empty'");
+    public void clear() {
+        for (int i = 0; i <= tope; i++) {
+            stack[i] = null;
+        }
+        tope = -1;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return tope == -1;
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return tope + 1;
     }
 
     

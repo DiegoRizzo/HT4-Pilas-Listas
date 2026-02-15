@@ -7,7 +7,7 @@ public interface IStack<T> {
 
     T peek();
 
-    boolean empty();
+    void clear();
 
     boolean isEmpty();
 

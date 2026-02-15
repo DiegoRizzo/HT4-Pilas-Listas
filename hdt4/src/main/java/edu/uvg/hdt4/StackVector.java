@@ -10,38 +10,34 @@ public class StackVector implements IStack<Integer> {
 
     @Override
     public Integer pop() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pop'");
+        if (isEmpty()) return null;
+        return stack.remove(stack.size() - 1);
     }
 
     @Override
     public void push(Integer value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'push'");
+        stack.add(value);
     }
 
     @Override
     public Integer peek() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'peek'");
+        if (isEmpty()) return null;
+        return stack.lastElement();
     }
 
     @Override
-    public boolean empty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'empty'");
+    public void clear() {
+        stack.clear();
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return stack.isEmpty();
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return stack.size();
     }
 
     

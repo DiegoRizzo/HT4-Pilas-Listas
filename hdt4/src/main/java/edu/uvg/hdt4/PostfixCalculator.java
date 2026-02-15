@@ -11,7 +11,7 @@ public class PostfixCalculator {
     
     
     public int evaluate(String expression) throws ArithmeticException, IllegalArgumentException {
-        stack.empty();
+        stack.clear();
         
         String[] tokens = expression.trim().split("\\s+");
         
