@@ -1,29 +1,29 @@
 package edu.uvg.hdt4;
 
-public class StackLista implements IStack<Integer> {
-    private Integer[] stack;
+public class StackLista implements IStack<Character> {
+    private Character[] stack;
     private int tope;
 
     public StackLista(int capacidad) {
-        this.stack = new Integer[capacidad];
+        this.stack = new Character[capacidad];
         this.tope = -1;
     }
 
     @Override
-    public Integer pop() {
+    public Character pop() {
         if (isEmpty()) {
             System.out.println("El stack está vacío. No se puede hacer pop.");
             return null;
         }
 
-        Integer valor = stack[tope];
+        Character valor = stack[tope];
         stack[tope] = null;
         tope--;
         return valor;
     }
 
     @Override
-    public void push(Integer value) {
+    public void push(Character value) {
         if (tope == stack.length - 1) {
             System.out.println("El stack está lleno. No se puede hacer push.");
             return;
@@ -34,7 +34,7 @@ public class StackLista implements IStack<Integer> {
     }
 
     @Override
-    public Integer peek() {
+    public Character peek() {
         if (isEmpty()) return null;
         return stack[tope];
     }

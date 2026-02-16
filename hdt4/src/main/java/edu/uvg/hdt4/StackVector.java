@@ -1,26 +1,26 @@
 package edu.uvg.hdt4;
 import java.util.Vector;
 
-public class StackVector implements IStack<Integer> {
-    private Vector<Integer> stack;
+public class StackVector implements IStack<Character> {
+    private Vector<Character> stack;
 
     public StackVector() {
         this.stack = new Vector<>();
     }
 
     @Override
-    public Integer pop() {
+    public Character pop() {
         if (isEmpty()) return null;
         return stack.remove(stack.size() - 1);
     }
 
     @Override
-    public void push(Integer value) {
+    public void push(Character value) {
         stack.add(value);
     }
 
     @Override
-    public Integer peek() {
+    public Character peek() {
         if (isEmpty()) return null;
         return stack.lastElement();
     }
