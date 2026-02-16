@@ -23,16 +23,16 @@ public class InfixToPostfix {
             } else if (c == '(') {
                 stack.push(c);
             } else if (c == ')') {
-                while (!stack.isEmpty() && stack.peek() != '(') {
+                while (!stack.isEmpty() && (char)stack.peek() != '(') {
                     postfix.append(stack.pop());
                 }
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
             } else {
-                while (!stack.isEmpty() && stack.peek() != '(' &&
-                        (precedence(stack.peek()) > precedence(c) ||
-                        (precedence (stack.peek()) == precedence(c) && !isRightAssociative(c)))) {
+                while (!stack.isEmpty() && (char)stack.peek() != '(' &&
+                        (precedence((char)stack.peek()) > precedence(c) ||
+                        (precedence((char)stack.peek()) == precedence(c) && !isRightAssociative((char)stack.peek())))) {
                     postfix.append(stack.pop());
                 }
                 stack.push(c);
@@ -56,16 +56,16 @@ public class InfixToPostfix {
             } else if (c == '(') {
                 stack.push(c);
             } else if (c == ')') {
-                while (!stack.isEmpty() && stack.peek() != '(') {
+                while (!stack.isEmpty() && (char)stack.peek() != '(') {
                     postfix.append(stack.pop());
                 }
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
             } else {
-                while (!stack.isEmpty() && stack.peek() != '(' &&
-                        (precedence(stack.peek()) > precedence(c) ||
-                        (precedence (stack.peek()) == precedence(c) && !isRightAssociative(c)))) {
+                while (!stack.isEmpty() && (char)stack.peek() != '(' &&
+                        (precedence((char)stack.peek()) > precedence(c) ||
+                        (precedence((char)stack.peek()) == precedence(c) && !isRightAssociative((char)stack.peek())))) {
                     postfix.append(stack.pop());
                 }
                 stack.push(c);
@@ -89,16 +89,16 @@ public class InfixToPostfix {
             } else if (c == '(') {
                 stack.push(c);
             } else if (c == ')') {
-                while (!stack.isEmpty() && stack.peek() != '(') {
+                while (!stack.isEmpty() && (char)stack.peek() != '(') {
                     postfix.append(stack.pop());
                 }
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
             } else {
-                while (!stack.isEmpty() && stack.peek() != '(' &&
-                        (precedence(stack.peek()) > precedence(c) ||
-                        (precedence (stack.peek()) == precedence(c) && !isRightAssociative(c)))) {
+                while (!stack.isEmpty() && (char)stack.peek() != '(' &&
+                        (precedence((char)stack.peek()) > precedence(c) ||
+                        (precedence((char)stack.peek()) == precedence(c) && !isRightAssociative((char)stack.peek())))) {
                     postfix.append(stack.pop());
                 }
                 stack.push(c);

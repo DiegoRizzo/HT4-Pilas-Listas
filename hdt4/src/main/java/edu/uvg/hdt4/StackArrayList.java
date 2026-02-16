@@ -1,26 +1,26 @@
 package edu.uvg.hdt4;
 import java.util.ArrayList;
 
-public class StackArrayList implements IStack<Character> {
-    private ArrayList<Character> stack;
+public class StackArrayList<T> implements IStack<T> {
+    private ArrayList<T> stack;
 
     public StackArrayList() {
         this.stack = new ArrayList<>();
     }
 
     @Override
-    public Character pop() {
+    public T pop() {
         if (isEmpty()) return null;
         return stack.remove(stack.size() - 1);
     }
 
     @Override
-    public void push(Character value) {
+    public void push(T value) {
         stack.add(value);
     }
 
     @Override
-    public Character peek() {
+    public T peek() {
         if (isEmpty()) return null;
         return stack.get(stack.size() - 1);
     }
