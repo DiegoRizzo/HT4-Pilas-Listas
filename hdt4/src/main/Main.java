@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        StackFactory<String> stackFactory = new StackFactory<String>();
 
         System.out.println("Seleccione implementación de Stack:");
         System.out.println("1. ArrayList");
@@ -17,19 +18,16 @@ public class Main {
 
         int option = scanner.nextInt();
 
-        Stack<Character> stackForConversion = null;
-        Stack<Integer> stackForEvaluation = null;
-
         switch (option) {
 
             case 1:
-                stackForConversion = new StackArrayList<Character>();
-                stackForEvaluation = new StackArrayList<Integer>();
+                stackForConversion = stackFactory.getStack(1);
+                stackForEvaluation = stackFactory.getStack(1);
                 break;
 
             case 2:
-                stackForConversion = new StackVector();
-                stackForEvaluation = new StackVector();
+                stackForConversion = stackFactory.getStack(2);
+                stackForEvaluation = stackFactory.getStack(2);
                 break;
 
             case 3:
@@ -43,15 +41,15 @@ public class Main {
                     List<Character> listChar = new SinglyLinkedList<>();
                     List<Integer> listInt = new SinglyLinkedList<>();
 
-                    stackForConversion = new StackList<>(listChar);
-                    stackForEvaluation = new StackList<>(listInt);
+                    stackForConversion = new StackLista<>(listChar);
+                    stackForEvaluation = new StackLista<>(listInt);
 
                 } else {
                     List<Character> listChar = new DoublyLinkedList<>();
                     List<Integer> listInt = new DoublyLinkedList<>();
 
-                    stackForConversion = new StackList<>(listChar);
-                    stackForEvaluation = new StackList<>(listInt);
+                    stackForConversion = new StackLista<>(listChar);
+                    stackForEvaluation = new StackLista<>(listInt);
                 }
 
                 break;

@@ -1,29 +1,27 @@
 package edu.uvg.hdt4;
 
-public class StackLista implements IStack<Character> {
-    private Character[] stack;
+public class StackLista<T> extends AbstractStack<T> {
+    private T[] stack;
     private int tope;
 
     public StackLista(int capacidad) {
-        this.stack = new Character[capacidad];
+        this.stack = (T[]) new Object[capacidad];
         this.tope = -1;
     }
 
-    @Override
-    public Character pop() {
+    public T pop() {
         if (isEmpty()) {
             System.out.println("El stack está vacío. No se puede hacer pop.");
             return null;
         }
 
-        Character valor = stack[tope];
+        T valor = stack[tope];
         stack[tope] = null;
         tope--;
         return valor;
     }
 
-    @Override
-    public void push(Character value) {
+    public void push(T value) {
         if (tope == stack.length - 1) {
             System.out.println("El stack está lleno. No se puede hacer push.");
             return;
@@ -33,13 +31,11 @@ public class StackLista implements IStack<Character> {
         stack[tope] = value;
     }
 
-    @Override
-    public Character peek() {
+    public T peek() {
         if (isEmpty()) return null;
         return stack[tope];
     }
 
-    @Override
     public void clear() {
         for (int i = 0; i <= tope; i++) {
             stack[i] = null;
@@ -47,12 +43,10 @@ public class StackLista implements IStack<Character> {
         tope = -1;
     }
 
-    @Override
     public boolean isEmpty() {
         return tope == -1;
     }
 
-    @Override
     public int size() {
         return tope + 1;
     }
